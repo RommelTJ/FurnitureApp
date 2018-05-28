@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722C08AE45B0332734AE2A04 /* Pods_FurnitureApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC20BF4EB19090B7E988D6B /* Pods_FurnitureApp.framework */; };
 		B09FA62920BC6FFC004B4862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09FA62820BC6FFC004B4862 /* AppDelegate.swift */; };
 		B09FA62B20BC6FFC004B4862 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B09FA62A20BC6FFC004B4862 /* art.scnassets */; };
 		B09FA62D20BC6FFC004B4862 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09FA62C20BC6FFC004B4862 /* ViewController.swift */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D032AFAF42E8D71C35567A4 /* Pods-FurnitureApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurnitureApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FurnitureApp/Pods-FurnitureApp.debug.xcconfig"; sourceTree = "<group>"; };
+		44D9407385D053392A07A4A6 /* Pods-FurnitureApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurnitureApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FurnitureApp/Pods-FurnitureApp.release.xcconfig"; sourceTree = "<group>"; };
+		ADC20BF4EB19090B7E988D6B /* Pods_FurnitureApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurnitureApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09FA62520BC6FFC004B4862 /* FurnitureApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FurnitureApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09FA62820BC6FFC004B4862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B09FA62A20BC6FFC004B4862 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722C08AE45B0332734AE2A04 /* Pods_FurnitureApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16FFF6F63FB01896342350E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D032AFAF42E8D71C35567A4 /* Pods-FurnitureApp.debug.xcconfig */,
+				44D9407385D053392A07A4A6 /* Pods-FurnitureApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		25DDB6036AE0DE750BA4489B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADC20BF4EB19090B7E988D6B /* Pods_FurnitureApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B09FA61C20BC6FFC004B4862 = {
 			isa = PBXGroup;
 			children = (
 				B09FA62720BC6FFC004B4862 /* FurnitureApp */,
 				B09FA62620BC6FFC004B4862 /* Products */,
+				16FFF6F63FB01896342350E3 /* Pods */,
+				25DDB6036AE0DE750BA4489B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B09FA63920BC6FFD004B4862 /* Build configuration list for PBXNativeTarget "FurnitureApp" */;
 			buildPhases = (
+				9389FE6420674CB04FEADB02 /* [CP] Check Pods Manifest.lock */,
 				B09FA62120BC6FFC004B4862 /* Sources */,
 				B09FA62220BC6FFC004B4862 /* Frameworks */,
 				B09FA62320BC6FFC004B4862 /* Resources */,
+				15DD3C2C307044767195F407 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +179,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15DD3C2C307044767195F407 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FurnitureApp/Pods-FurnitureApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FurnitureApp/Pods-FurnitureApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9389FE6420674CB04FEADB02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FurnitureApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B09FA62120BC6FFC004B4862 /* Sources */ = {
@@ -302,6 +367,7 @@
 		};
 		B09FA63A20BC6FFD004B4862 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D032AFAF42E8D71C35567A4 /* Pods-FurnitureApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +386,7 @@
 		};
 		B09FA63B20BC6FFD004B4862 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44D9407385D053392A07A4A6 /* Pods-FurnitureApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
