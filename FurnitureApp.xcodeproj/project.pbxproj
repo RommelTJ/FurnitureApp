@@ -62,9 +62,6 @@
 		B09FA62720BC6FFC004B4862 /* FurnitureApp */ = {
 			isa = PBXGroup;
 			children = (
-				B09FA63D20BC7474004B4862 /* Armchair 01.dae */,
-				B09FA63E20BC7474004B4862 /* Neil Woo03.jpg */,
-				B09FA63C20BC7474004B4862 /* NeilFabricPlain008.jpg */,
 				B09FA62820BC6FFC004B4862 /* AppDelegate.swift */,
 				B09FA62A20BC6FFC004B4862 /* art.scnassets */,
 				B09FA62C20BC6FFC004B4862 /* ViewController.swift */,
@@ -72,8 +69,19 @@
 				B09FA63120BC6FFD004B4862 /* Assets.xcassets */,
 				B09FA63320BC6FFD004B4862 /* LaunchScreen.storyboard */,
 				B09FA63620BC6FFD004B4862 /* Info.plist */,
+				B09FA64220BC74C4004B4862 /* Armchair assets */,
 			);
 			path = FurnitureApp;
+			sourceTree = "<group>";
+		};
+		B09FA64220BC74C4004B4862 /* Armchair assets */ = {
+			isa = PBXGroup;
+			children = (
+				B09FA63D20BC7474004B4862 /* Armchair 01.dae */,
+				B09FA63E20BC7474004B4862 /* Neil Woo03.jpg */,
+				B09FA63C20BC7474004B4862 /* NeilFabricPlain008.jpg */,
+			);
+			path = "Armchair assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
