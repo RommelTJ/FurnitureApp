@@ -15,7 +15,7 @@
 		B09FA63220BC6FFD004B4862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63120BC6FFD004B4862 /* Assets.xcassets */; };
 		B09FA63520BC6FFD004B4862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63320BC6FFD004B4862 /* LaunchScreen.storyboard */; };
 		B09FA63F20BC7475004B4862 /* NeilFabricPlain008.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63C20BC7474004B4862 /* NeilFabricPlain008.jpg */; };
-		B09FA64020BC7475004B4862 /* Armchair 01.dae in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63D20BC7474004B4862 /* Armchair 01.dae */; };
+		B09FA64020BC7475004B4862 /* chair.dae in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63D20BC7474004B4862 /* chair.dae */; };
 		B09FA64120BC7475004B4862 /* Neil Woo03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09FA63E20BC7474004B4862 /* Neil Woo03.jpg */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		B09FA63420BC6FFD004B4862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09FA63620BC6FFD004B4862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B09FA63C20BC7474004B4862 /* NeilFabricPlain008.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NeilFabricPlain008.jpg; sourceTree = "<group>"; };
-		B09FA63D20BC7474004B4862 /* Armchair 01.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = "Armchair 01.dae"; sourceTree = "<group>"; };
+		B09FA63D20BC7474004B4862 /* chair.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = chair.dae; sourceTree = "<group>"; };
 		B09FA63E20BC7474004B4862 /* Neil Woo03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Neil Woo03.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 		B09FA64220BC74C4004B4862 /* Armchair assets */ = {
 			isa = PBXGroup;
 			children = (
-				B09FA63D20BC7474004B4862 /* Armchair 01.dae */,
+				B09FA63D20BC7474004B4862 /* chair.dae */,
 				B09FA63E20BC7474004B4862 /* Neil Woo03.jpg */,
 				B09FA63C20BC7474004B4862 /* NeilFabricPlain008.jpg */,
 			);
@@ -174,7 +174,7 @@
 				B09FA63220BC6FFD004B4862 /* Assets.xcassets in Resources */,
 				B09FA63F20BC7475004B4862 /* NeilFabricPlain008.jpg in Resources */,
 				B09FA63020BC6FFC004B4862 /* Main.storyboard in Resources */,
-				B09FA64020BC7475004B4862 /* Armchair 01.dae in Resources */,
+				B09FA64020BC7475004B4862 /* chair.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

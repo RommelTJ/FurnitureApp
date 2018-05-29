@@ -27,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.autoenablesDefaultLighting = true
         
         // Create a new scene
         let scene = SCNScene()
@@ -64,6 +65,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @objc func tapped(recognizer: UITapGestureRecognizer) {
         if let sceneView = recognizer.view as? ARSCNView {
             let touch = recognizer.location(in: sceneView)
+            let hitTestResults = sceneView.hitTest(touch, types: .existingPlane)
+            if let hitTest = hitTestResults.first {
+                // Get the model (i.e. the chair).
+                let chairScene = SCNScene(named: "chair.dae")!
+                guard let chairNode = chairScene.rootNode.childNode(withName: "chair", recursively: true) else { return }
+                chairNode.position = SCNVector3(hitTest.worldTransform.columns.3.x,
+                                                hitTest.worldTransform.columns.3.y,
+                                                hitTest.worldTransform.columns.3.z)
+                self.sceneView.scene.rootNode.addChildNode(chairNode)
+            }
         }
     }
     
