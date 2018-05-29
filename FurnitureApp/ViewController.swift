@@ -33,6 +33,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        // Register Gesture Recognizers
+        registerGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +54,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    func registerGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func tapped(recognizer: UITapGestureRecognizer) {
+        if let sceneView = recognizer.view as? ARSCNView {
+            let touch = recognizer.location(in: sceneView)
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
