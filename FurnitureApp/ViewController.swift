@@ -64,6 +64,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @objc func tapped(recognizer: UITapGestureRecognizer) {
         if let sceneView = recognizer.view as? ARSCNView {
             let touch = recognizer.location(in: sceneView)
+            let hitTestResults = sceneView.hitTest(touch, types: .existingPlane)
+            if let hitTest = hitTestResults.first {
+                // Get the model (i.e. the chair).
+                
+            }
         }
     }
     
