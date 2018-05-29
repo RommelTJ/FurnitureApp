@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-05-28T17:32:29Z</created>
-  <modified>2018-05-28T17:32:29Z</modified>
+  <created>2018-05-29T15:41:03Z</created>
+  <modified>2018-05-29T15:41:03Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Z_UP</up_axis>
  </asset>
@@ -137,7 +137,7 @@
  </library_geometries>
  <library_visual_scenes>
   <visual_scene id="scene7">
-   <node id="Cube_011" name="Cube_011">
+   <node id="Cube_011" name="chair">
     <matrix>1 0 0 -0.8858569 0 1 0 -0.1506994 0 0 1 0.01398758 0 0 0 1 </matrix>
     <instance_geometry url="#geometry1">
      <bind_material>
