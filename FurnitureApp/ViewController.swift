@@ -111,10 +111,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let translation = recognizer.translation(in: sceneView)
             let hitTestResults = self.sceneView.hitTest(touch, options: nil)
             if let hitTest = hitTestResults.first {
-                let chairNode = hitTest.node
-                self.newAngleY = Float(translation.x) * (Float) (Double.pi)/180
-                self.newAngleY += self.currentAngleY
-                chairNode.eulerAngles.y = self.newAngleY
+                if let parentNode = hitTest.node.parent {
+                    self.newAngleY = Float(translation.x) * (Float) (Double.pi)/180
+                    self.newAngleY += self.currentAngleY
+                    parentNode.eulerAngles.y = self.newAngleY
+                }
             }
         } else if recognizer.state == .ended {
             self.currentAngleY = self.newAngleY
