@@ -17,6 +17,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private var hud: MBProgressHUD!
     private var newAngleY: Float = 0.0
     private var currentAngleY: Float = 0.0
+    private var localTranslatePosition: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned))
         self.sceneView.addGestureRecognizer(panGestureRecognizer)
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
     }
     
     @objc func tapped(recognizer: UITapGestureRecognizer) {
@@ -119,6 +123,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         } else if recognizer.state == .ended {
             self.currentAngleY = self.newAngleY
+        }
+    }
+    
+    @objc func longPressed(recognizer: UILongPressGestureRecognizer) {
+        guard let sceneView = recognizer.view as? ARSCNView else { return }
+        
+        let touch = recognizer.location(in: sceneView)
+        let hitTestResults = self.sceneView.hitTest(touch, options: nil)
+        if let hitTest = hitTestResults.first {
+            if let parentNode = hitTest.node.parent {
+                if recognizer.state == .began {
+                    self.localTranslatePosition = touch
+                } else if recognizer.state == .changed {
+                    let deltaX = Float(touch.x - self.localTranslatePosition.x)/700
+                    let deltaY = Float(touch.y - self.localTranslatePosition.y)/700
+                    parentNode.localTranslate(by: SCNVector3(deltaX, 0.0, deltaY))
+                    self.localTranslatePosition = touch
+                }
+            }
         }
     }
     
