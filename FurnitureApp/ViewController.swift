@@ -77,7 +77,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if let hitTest = hitTestResults.first {
                 // Get the model (i.e. the chair).
                 let chairScene = SCNScene(named: "chair.dae")!
-                guard let chairNode = chairScene.rootNode.childNode(withName: "chair", recursively: true) else { return }
+                guard let chairNode = chairScene.rootNode.childNode(withName: "parentNode", recursively: true) else { return }
                 chairNode.position = SCNVector3(hitTest.worldTransform.columns.3.x,
                                                 hitTest.worldTransform.columns.3.y,
                                                 hitTest.worldTransform.columns.3.z)
