@@ -77,7 +77,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if let hitTest = hitTestResults.first {
                 // Get the model (i.e. the chair).
                 let chairScene = SCNScene(named: "chair.dae")!
-                guard let chairNode = chairScene.rootNode.childNode(withName: "chair", recursively: true) else { return }
+                guard let chairNode = chairScene.rootNode.childNode(withName: "parentNode", recursively: true) else { return }
                 chairNode.position = SCNVector3(hitTest.worldTransform.columns.3.x,
                                                 hitTest.worldTransform.columns.3.y,
                                                 hitTest.worldTransform.columns.3.z)
@@ -111,10 +111,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let translation = recognizer.translation(in: sceneView)
             let hitTestResults = self.sceneView.hitTest(touch, options: nil)
             if let hitTest = hitTestResults.first {
-                let chairNode = hitTest.node
-                self.newAngleY = Float(translation.x) * (Float) (Double.pi)/180
-                self.newAngleY += self.currentAngleY
-                chairNode.eulerAngles.y = self.newAngleY
+                if let parentNode = hitTest.node.parent {
+                    self.newAngleY = Float(translation.x) * (Float) (Double.pi)/180
+                    self.newAngleY += self.currentAngleY
+                    parentNode.eulerAngles.y = self.newAngleY
+                }
             }
         } else if recognizer.state == .ended {
             self.currentAngleY = self.newAngleY
