@@ -63,6 +63,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned))
+        self.sceneView.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc func tapped(recognizer: UITapGestureRecognizer) {
@@ -96,6 +99,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 recognizer.scale = 1.0
             }
         }
+    }
+    
+    @objc func panned(recognizer: UIPanGestureRecognizer) {
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
