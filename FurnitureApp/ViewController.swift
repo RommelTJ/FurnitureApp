@@ -68,6 +68,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned))
         self.sceneView.addGestureRecognizer(panGestureRecognizer)
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
     }
     
     @objc func tapped(recognizer: UITapGestureRecognizer) {
@@ -120,6 +123,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         } else if recognizer.state == .ended {
             self.currentAngleY = self.newAngleY
         }
+    }
+    
+    @objc func longPressed(recognizer: UILongPressGestureRecognizer) {
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
