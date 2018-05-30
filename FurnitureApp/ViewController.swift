@@ -82,7 +82,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @objc func pinched(recognizer: UIPinchGestureRecognizer) {
-        
+        if recognizer.state == .changed {
+            guard let sceneView = recognizer.view as? ARSCNView else { return }
+            
+            let touch = recognizer.location(in: sceneView)
+            let hitTestResults = self.sceneView.hitTest(touch, options: nil)
+            if let hitTest = hitTestResults.first {
+                let chairNode = hitTest.node
+                let pinchScaleX = Float(recognizer.scale) * chairNode.scale.x
+                let pinchScaleY = Float(recognizer.scale) * chairNode.scale.y
+                let pinchScaleZ = Float(recognizer.scale) * chairNode.scale.z
+                chairNode.scale = SCNVector3(pinchScaleX, pinchScaleY, pinchScaleZ)
+                recognizer.scale = 1.0
+            }
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
