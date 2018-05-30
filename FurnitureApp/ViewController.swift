@@ -60,6 +60,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func registerGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
+        self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
     @objc func tapped(recognizer: UITapGestureRecognizer) {
@@ -76,6 +79,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.sceneView.scene.rootNode.addChildNode(chairNode)
             }
         }
+    }
+    
+    @objc func pinched(recognizer: UIPinchGestureRecognizer) {
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
