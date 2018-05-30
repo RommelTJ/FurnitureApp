@@ -15,6 +15,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     private var hud: MBProgressHUD!
+    private var newAngleY: Float = 0.0
+    private var currentAngleY: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +104,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @objc func panned(recognizer: UIPanGestureRecognizer) {
-        
+        if recognizer.state == .changed {
+            guard let sceneView = recognizer.view as? ARSCNView else { return }
+            
+            let touch = recognizer.location(in: sceneView)
+            let translation = recognizer.translation(in: sceneView)
+            let hitTestResults = self.sceneView.hitTest(touch, options: nil)
+            if let hitTest = hitTestResults.first {
+                let chairNode = hitTest.node
+                self.newAngleY = Float(translation.x) * (Float) (Double.pi)/180
+                self.newAngleY += self.currentAngleY
+                chairNode.eulerAngles.y = self.newAngleY
+            }
+        } else if recognizer.state == .ended {
+            self.currentAngleY = self.newAngleY
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
